@@ -5,7 +5,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 //local imports
-var MovieListsContainer = require('./components/movielist.jsx').MovieListsContainer;
+var PageContainer = require('./components/movielist.jsx').PageContainer;
 //router
 
 var AppRouter = Backbone.Router.extend({
@@ -14,7 +14,7 @@ var AppRouter = Backbone.Router.extend({
   },
   index: function(){
     ReactDOM.render(
-      React.createElement(MovieListsContainer, {router: this}),
+      React.createElement(PageContainer, {router: this}),
       document.getElementById('app')
     );
   }

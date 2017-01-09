@@ -7,39 +7,65 @@ var _ = require("underscore");
 var models = require('../models/movies');
 //components
 
-class PopularMovieContainer extends React.Component{
+class NavBarComponent extends React.Component {
+  render() {
+    return (
+      <nav>
+        <img src={'./images/netflix-logo.jpg'} />
+        <li className="no-style">Browse</li>
+        <li>My List</li>
+        <li>Top Picks</li>
+        <li>Recent</li>
+      </nav>
+    )
+  }
+}
+
+class PageBodyComponent extends React.Component {
+  render() {
+    return(
+        <img src={'../images/narcos.png'} />
+      )
+  }
+}
+
+class PopularMovieComponent extends React.Component {
   render(){
-    console.log(this.props.popularMovies);
-    var popularMovieList = this.props.popularMovies.map(function(movie){
-      return <img src={movie.backdrop_path}></img>
-    });
+    // console.log(this.props.popularMovies);
+    // var popularMovieList = this.props.popularMovies.map(function(movie){
+    //   return <img src={movie.backdrop_path}></img>
+    // });
     return <p>hi</p>
   }
 }
 
-class MovieListsContainer extends React.Component {
+class PageContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       popularMovieCollection: ''
     };
   }
-  componentWillMount() {
-    var self = this;
-    var popularMovies = new models.PopularMovieCollection();
-    popularMovies.fetch().then(function(response){
-      console.log(response);
-      self.setState({popularMovieCollection: response});
-    });
-  }
+  // componentWillMount() {
+  //   var self = this;
+  //   var popularMovies = new models.PopularMovieCollection();
+  //   popularMovies.fetch().then(function(response){
+  //     console.log(response);
+  //     self.setState({popularMovieCollection: response});
+  //   });
+  // }
   render(){
     return(
-      <PopularMovieContainer popularMovies={this.state.popularMovieCollection}/>
+      <div>
+        <NavBarComponent />
+        <PageBodyComponent />
+        <PopularMovieComponent popularMovies={this.state.popularMovieCollection}/>
+      </div>
     );
   }
 }
 
 
 module.exports = {
-  MovieListsContainer: MovieListsContainer
+  PageContainer: PageContainer
 }
