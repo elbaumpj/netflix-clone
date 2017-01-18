@@ -20,7 +20,39 @@ img {
   background-color: black;
 }
 
-
+// Nav styling
 nav {
   list-style: none;
+  img {
+    height: 60px;
+    float: left;
+  }
+  li {
+    float: left;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: white;
+    padding: 7px 10px;
+    margin: 10px 0;
+  }
+}
+
+div {
+  min-height: 1px;
+}
+
+//Page body
+
+.header-container {
+  height: 600px;
+  background-size: cover;
+}
+
+#narcos-logo {
+  height: 135px;
+  margin: 80px 100px;
+}
+
+#narcos-header {
+  float: left;
 }

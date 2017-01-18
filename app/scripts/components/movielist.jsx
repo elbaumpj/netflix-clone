@@ -10,9 +10,9 @@ var models = require('../models/movies');
 class NavBarComponent extends React.Component {
   render() {
     return (
-      <nav>
+      <nav className="clearfix">
         <img src={'./images/netflix-logo.jpg'} />
-        <li className="no-style">Browse</li>
+        <li>Browse</li>
         <li>My List</li>
         <li>Top Picks</li>
         <li>Recent</li>
@@ -24,7 +24,13 @@ class NavBarComponent extends React.Component {
 class PageBodyComponent extends React.Component {
   render() {
     return(
-        <img src={'../images/narcos.png'} />
+      <div className="row">
+        <div className="clearfix">
+          <div className="header-container" style={{backgroundImage: 'url(./images/narcos-header.jpg)'}}>
+            <img id="narcos-logo" src={'http://www.returndates.com/backgrounds/narcos.logo.png'} />
+          </div>
+        </div>
+      </div>
       )
   }
 }
@@ -35,7 +41,7 @@ class PopularMovieComponent extends React.Component {
     // var popularMovieList = this.props.popularMovies.map(function(movie){
     //   return <img src={movie.backdrop_path}></img>
     // });
-    return <p>hi</p>
+    return <p></p>
   }
 }
 
@@ -51,7 +57,7 @@ class PageContainer extends React.Component {
   //   var popularMovies = new models.PopularMovieCollection();
   //   popularMovies.fetch().then(function(response){
   //     console.log(response);
-  //     self.setState({popularMovieCollection: response});
+  //     self.forceUpdate({popularMovieCollection: response});
   //   });
   // }
   render(){
