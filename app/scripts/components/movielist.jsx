@@ -28,6 +28,10 @@ class PageBodyComponent extends React.Component {
         <div className="clearfix">
           <div className="header-container" style={{backgroundImage: 'url(./images/narcos-header.jpg)'}}>
             <img id="narcos-logo" src={'http://www.returndates.com/backgrounds/narcos.logo.png'} />
+            <div className="show-description">
+              <h3>Watch Season 2 Now</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -37,11 +41,11 @@ class PageBodyComponent extends React.Component {
 
 class PopularMovieComponent extends React.Component {
   render(){
-    // console.log(this.props.popularMovies);
+    // console.log('hey!', this.props.popularMovies);
     // var popularMovieList = this.props.popularMovies.map(function(movie){
     //   return <img src={movie.backdrop_path}></img>
     // });
-    return <p></p>
+    return <p></p>//{popularMovieList}
   }
 }
 
@@ -52,14 +56,14 @@ class PageContainer extends React.Component {
       popularMovieCollection: ''
     };
   }
-  // componentWillMount() {
-  //   var self = this;
-  //   var popularMovies = new models.PopularMovieCollection();
-  //   popularMovies.fetch().then(function(response){
-  //     console.log(response);
-  //     self.forceUpdate({popularMovieCollection: response});
-  //   });
-  // }
+  componentWillMount() {
+    var self = this;
+    var popularMovies = new models.PopularMovieCollection();
+    popularMovies.fetch().then(function(response){
+      console.log(response.results);
+      self.forceUpdate({popularMovieCollection: response.results});
+    });
+  }
   render(){
     return(
       <div>
