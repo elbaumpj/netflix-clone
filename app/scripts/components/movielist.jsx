@@ -41,27 +41,37 @@ class PageBodyComponent extends React.Component {
 
 class PopularMovieComponent extends React.Component {
   render(){
-    // console.log('hey!', this.props.popularMovies);
-    // var popularMovieList = this.props.popularMovies.map(function(movie){
-    //   return <img src={movie.backdrop_path}></img>
-    // });
-    return <p></p>//{popularMovieList}
+    console.log(this.props.popularMovies)
+    var popularMovieImages = this.props.popularMovies.map(function(movie, i){
+      var moviePoster = 'http://image.tmdb.org/t/p/original' + movie.backdrop_path
+        if (i < 5) {
+          return <img className="movie-panel" key={movie.id} src={moviePoster} />
+        }
+      });
+  return (
+    <div className="movie-row">
+      <h4>Trending Now</h4>
+      {popularMovieImages}
+    </div>
+    );
   }
 }
+
 
 class PageContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      popularMovieCollection: ''
+      popularMovieCollection: []
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     var self = this;
     var popularMovies = new models.PopularMovieCollection();
-    popularMovies.fetch().then(function(response){
-      console.log(response.results);
-      self.forceUpdate({popularMovieCollection: response.results});
+    popularMovies.fetch().then((response) => {
+      this.setState({
+        popularMovieCollection: response.results
+      });
     });
   }
   render(){

@@ -66,3 +66,27 @@ div {
 #narcos-header {
   float: left;
 }
+
+//movies
+h4 {
+  color: gray;
+  // margin-left: 15px;
+}
+
+.movie-row {
+  margin: 0 22px;
+}
+
+.movie-panel {
+  width: calc(20% - 10px);
+	min-width: calc(20% - 10px);
+	background-color: black;
+	flex: 1 0 auto;
+	background-position: center;
+	background-size: 100%;
+	height: 200px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	margin-right: 10px;
+	transition: background 1s ease;
+}
