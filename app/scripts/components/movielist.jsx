@@ -57,20 +57,46 @@ class PopularMovieComponent extends React.Component {
   }
 }
 
+class PopularTVComponent extends React.Component {
+  render(){
+    console.log(this.props.popularShows)
+    var popularTVImages = this.props.popularShows.map(function(movie, i){
+      var moviePoster = 'http://image.tmdb.org/t/p/original' + movie.backdrop_path
+        if (i < 5) {
+          return <img className="movie-panel" key={movie.id} src={moviePoster} />
+        }
+      });
+  return (
+    <div className="movie-row">
+      <h4>Top TV Picks for Peter</h4>
+      {popularTVImages}
+    </div>
+    );
+  }
+}
+
+
 
 class PageContainer extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      popularMovieCollection: []
+      popularMovieCollection: [],
+      popularShowCollection: []
     };
   }
-  componentDidMount() {
+  componentWillMount() {
     var self = this;
     var popularMovies = new models.PopularMovieCollection();
+    var popularShows = new models.PopularTVShowCollection();
     popularMovies.fetch().then((response) => {
       this.setState({
         popularMovieCollection: response.results
+      });
+    });
+    popularShows.fetch().then((response) => {
+      this.setState({
+        popularShowCollection: response.results
       });
     });
   }
@@ -80,6 +106,7 @@ class PageContainer extends React.Component {
         <NavBarComponent />
         <PageBodyComponent />
         <PopularMovieComponent popularMovies={this.state.popularMovieCollection}/>
+        <PopularTVComponent popularShows={this.state.popularShowCollection}/>
       </div>
     );
   }

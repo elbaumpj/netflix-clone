@@ -14,8 +14,25 @@ var PopularMovieCollection = Backbone.Collection.extend({
   }
 });
 
+var PopularTVShow = Backbone.Model.extend({
+
+
+});
+
+var PopularTVShowCollection = Backbone.Collection.extend({
+  model: PopularTVShow,
+  url: function(){
+    return 'https://api.themoviedb.org/3/discover/tv?' + 'api_key=fa055d219cea41c0663349907362bfcf';
+  },
+  parse: function(response) {
+    return response.data;
+  }
+});
+
 
 module.exports = {
   Movie: Movie,
-  PopularMovieCollection: PopularMovieCollection
+  PopularMovieCollection: PopularMovieCollection,
+  PopularTVShow: PopularTVShow,
+  PopularTVShowCollection: PopularTVShowCollection
 }
