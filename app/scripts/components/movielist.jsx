@@ -31,6 +31,10 @@ class PageBodyComponent extends React.Component {
             <div className="show-description">
               <h3>Watch Season 2 Now</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div>
+                <a href="#" className="play-button col-md-5" placeholder="Watch Now">Play</a>
+                <a href="#" className="button col-md-offset-1 col-md-6" placeholder="+ My List">+ My List</a>
+              </div>
             </div>
           </div>
         </div>

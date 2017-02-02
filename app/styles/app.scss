@@ -20,6 +20,21 @@ img {
   background-color: black;
 }
 
+//placeholder
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
 // Nav styling
 nav {
   list-style: none;
@@ -50,7 +65,7 @@ div {
 //Page body
 
 .header-container {
-  min-height: 600px;
+  min-height: 700px;
   background-size: cover;
   h3, p {
     color: white;
@@ -73,6 +88,60 @@ div {
   float: left;
 }
 
+//button
+
+
+a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  padding-left: 5px;
+  text-decoration: none;
+  background: transparent;
+	display: flex;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: white;
+	padding: 20px;
+	box-sizing: border-box;
+	border: 2px solid rgba(grey, .2);
+	border-radius: 2px;
+	font-size: 14px;
+	font-weight: 600;
+	transition: border .125s ease, background .125s ease;
+
+	&:hover {
+		border: 2px solid grey;
+	}
+}
+
+.play-button {
+  text-decoration: none;
+  background-color: #e50914;
+	display: flex;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: white;
+	padding: 20px;
+	box-sizing: border-box;
+	border: 2px solid #e50914;
+	border-radius: 2px;
+	font-size: 14px;
+	font-weight: 600;
+	transition: border .125s ease, background .125s ease;
+
+	&:hover {
+		background: #e50914;
+	}
+}
+
+
 //movies
 h4 {
   color: gray;
@@ -80,7 +149,7 @@ h4 {
 }
 
 .movie-row {
-  margin: 0 22px;
+  margin: 10px 22px;
 }
 
 .movie-panel {
